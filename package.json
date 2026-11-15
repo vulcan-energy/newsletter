@@ -1,6 +1,6 @@
 {
   "name": "@vulcan-energy/newsletter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Newsletters inside your Supabase app: subscribers stay in your own Postgres, mail goes out through Resend, and every send is checked so you never mail the wrong list.",
   "keywords": [
     "newsletter",

@@ -1,6 +1,10 @@
 # Changelog
 
-## 0.1.0 (unreleased)
+## 0.1.1 (November 2026)
+
+No code changes. The first release published from GitHub Actions with npm trusted publishing, so it carries a provenance statement linking it to its source commit.
+
+## 0.1.0 (15 November 2026)
 
 First public release.
 
