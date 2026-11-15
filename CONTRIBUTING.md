@@ -29,3 +29,12 @@ Add a new file to `migrations/` and never edit one that has been released. Keep 
 ## Pull requests
 
 Describe what changed and why, how you tested it, and anything you couldn't test, such as live Resend behaviour.
+
+## Releasing
+
+Releases go out from GitHub Actions with npm trusted publishing, so no npm token exists anywhere, and each release carries a provenance statement linking it to the commit it was built from.
+
+1. Bump `version` in `package.json` and add the release to `CHANGELOG.md`, then merge that to `main`.
+2. In Actions, run **Publish to npm** from `main`. Choose `publish` to release straight away, or `stage` to upload it for review and approve it on npmjs.com with 2FA.
+
+The workflow builds and tests the package and refuses a version that is already on npm.

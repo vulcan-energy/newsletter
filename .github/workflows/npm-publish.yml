@@ -1,0 +1,71 @@
+# Releases the package with npm trusted publishing: GitHub proves to npm which workflow is
+# running, so no npm token exists anywhere, and npm adds a provenance statement linking the
+# release to this repository and commit. Run it by hand from main once the version bump
+# has merged:
+#   publish  releases straight away
+#   stage    uploads it for review; approve it on npmjs.com, with 2FA, to release
+# Inside a monorepo this folder is ignored.
+name: Publish to npm
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_mode:
+        description: Publish now, or stage on npm and approve it there
+        required: true
+        default: publish
+        type: choice
+        options:
+          - publish
+          - stage
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: npm-production
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: ${{ inputs.release_mode }}
+    # Trusted publishing works only on GitHub-hosted runners (docs.npmjs.com/trusted-publishers).
+    runs-on: ubuntu-latest
+    environment: npm-production
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: "24"
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+
+      - name: Use npm with trusted and staged publishing
+        run: npm install --global npm@11.16.0
+
+      - run: npm ci --no-audit --no-fund
+
+      - name: Build and test
+        run: |
+          npm run build
+          npm test
+          npm run test:package
+
+      - name: Check this version is not on npm yet
+        run: |
+          name="$(node -p 'require("./package.json").name')"
+          version="$(node -p 'require("./package.json").version')"
+          if npm view "$name@$version" version >/dev/null 2>&1; then
+            echo "::error::$name@$version is already on npm. Bump the version first."
+            exit 1
+          fi
+
+      - name: Publish
+        if: inputs.release_mode == 'publish'
+        run: npm publish --access public
+
+      - name: Stage
+        if: inputs.release_mode == 'stage'
+        run: npm stage publish --access public
