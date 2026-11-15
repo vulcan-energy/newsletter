@@ -1,0 +1,22 @@
+{
+  "created_at": "2026-11-02T20:39:06.057Z",
+  "data": {
+    "bounce": {
+      "diagnosticCode": [
+        "smtp; 550 5.1.1 As requested: user unknown <bounce@simulator.amazonses.com>"
+      ],
+      "message": "The recipient's email provider sent a hard bounce message, but didn't specify the reason for the hard bounce. We recommend removing the recipient's email address from your mailing list. Sending messages to addresses that produce hard bounces can have a negative impact on your reputation as a sender.",
+      "subType": "General",
+      "type": "Permanent"
+    },
+    "created_at": "2026-11-02T20:39:05.484Z",
+    "email_id": "00000000-0000-4000-8000-000000000009",
+    "from": "Newsletter <sender@news.example.com>",
+    "message_id": "<message-00000000-0000-4000-8000-000000000010-000000@eu-west-1.amazonses.com>",
+    "subject": "Test transactional",
+    "to": [
+      "bounced@resend.dev"
+    ]
+  },
+  "type": "email.bounced"
+}

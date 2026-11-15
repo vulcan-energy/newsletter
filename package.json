@@ -1,0 +1,90 @@
+{
+  "name": "@vulcan-energy/newsletter",
+  "version": "0.1.0",
+  "description": "Newsletters inside your Supabase app: subscribers stay in your own Postgres, mail goes out through Resend, and every send is checked so you never mail the wrong list.",
+  "keywords": [
+    "newsletter",
+    "email",
+    "supabase",
+    "postgres",
+    "resend",
+    "broadcast",
+    "gdpr",
+    "mcp"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vulcan-energy/newsletter.git"
+  },
+  "homepage": "https://github.com/vulcan-energy/newsletter#readme",
+  "bugs": {
+    "url": "https://github.com/vulcan-energy/newsletter/issues"
+  },
+  "type": "module",
+  "files": [
+    "dist",
+    "schema.sql",
+    "migrations",
+    "examples/host.ts",
+    "docs",
+    "AGENTS.md",
+    "README.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22.1"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./resend": {
+      "types": "./dist/providers/resend.d.ts",
+      "default": "./dist/providers/resend.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "check-types": "tsc --noEmit",
+    "test:package": "node --test tests/package.check.mjs",
+    "prepublishOnly": "npm run build && npm test && npm run test:package"
+  },
+  "peerDependencies": {
+    "@supabase/supabase-js": "^2.50.2",
+    "resend": ">=6.12.4 <7",
+    "@modelcontextprotocol/sdk": "^1.32.2"
+  },
+  "peerDependenciesMeta": {
+    "resend": {
+      "optional": true
+    },
+    "@modelcontextprotocol/sdk": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "parse5": "7.3.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "@supabase/supabase-js": "^2.50.2",
+    "@types/node": "^22.15.33",
+    "resend": "6.12.4",
+    "typescript": "5.8.2",
+    "vitest": "^4.1.11"
+  },
+  "bin": {
+    "vulcan-newsletter": "dist/cli.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

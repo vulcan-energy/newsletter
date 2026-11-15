@@ -1,0 +1,14 @@
+{
+  "created_at": "2026-11-02T20:39:07.890Z",
+  "data": {
+    "created_at": "2026-11-02T20:39:06.045Z",
+    "email_id": "00000000-0000-4000-8000-000000000013",
+    "from": "Newsletter <sender@news.example.com>",
+    "message_id": "<message-00000000-0000-4000-8000-000000000014-000000@eu-west-1.amazonses.com>",
+    "subject": "Test transactional",
+    "to": [
+      "complained@resend.dev"
+    ]
+  },
+  "type": "email.complained"
+}

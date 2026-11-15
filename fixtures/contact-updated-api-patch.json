@@ -1,0 +1,13 @@
+{
+  "created_at": "2026-11-02T20:28:40.607Z",
+  "data": {
+    "created_at": "2026-11-02T20:28:39.421Z",
+    "email": "subscriber@example.com",
+    "first_name": null,
+    "id": "00000000-0000-4000-8000-000000000003",
+    "last_name": null,
+    "unsubscribed": true,
+    "updated_at": "2026-11-02T20:28:40.498Z"
+  },
+  "type": "contact.updated"
+}

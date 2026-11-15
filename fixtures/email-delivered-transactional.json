@@ -1,0 +1,20 @@
+{
+  "created_at": "2026-11-02T20:37:48.655Z",
+  "data": {
+    "created_at": "2026-11-02T20:37:47.418Z",
+    "email_id": "00000000-0000-4000-8000-000000000007",
+    "from": "Newsletter <sender@news.example.com>",
+    "headers": [
+      {
+        "name": "Reply-To",
+        "value": "sender@example.com"
+      }
+    ],
+    "message_id": "<message-00000000-0000-4000-8000-000000000008-000000@eu-west-1.amazonses.com>",
+    "subject": "[TEST] Test before",
+    "to": [
+      "subscriber@example.com"
+    ]
+  },
+  "type": "email.delivered"
+}

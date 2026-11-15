@@ -1,0 +1,43 @@
+{
+  "created_at": "2026-11-02T20:36:59.652Z",
+  "data": {
+    "broadcast_id": "00000000-0000-4000-8000-000000000004",
+    "click": {
+      "ipAddress": "192.0.2.1",
+      "link": "https://example.com/docs",
+      "timestamp": "2026-11-02T20:36:59.652Z",
+      "userAgent": "ExampleAgent/1.0"
+    },
+    "created_at": "2026-11-02T20:34:25.948Z",
+    "email_id": "00000000-0000-4000-8000-000000000005",
+    "from": "Newsletter <sender@news.example.com>",
+    "headers": [
+      {
+        "name": "Reply-To",
+        "value": "sender@example.com"
+      },
+      {
+        "name": "List-Unsubscribe",
+        "value": "<https://unsubscribe.resend.com/?token=REDACTED>"
+      },
+      {
+        "name": "List-Unsubscribe-Post",
+        "value": "List-Unsubscribe=One-Click"
+      },
+      {
+        "name": "Precedence",
+        "value": "bulk"
+      },
+      {
+        "name": "X-Entity-Ref-ID",
+        "value": "00000000-0000-4000-8000-000000000004"
+      }
+    ],
+    "message_id": "<message-00000000-0000-4000-8000-000000000006-000000@email.amazonses.com>",
+    "subject": "Test (please ignore)",
+    "to": [
+      "subscriber@example.com"
+    ]
+  },
+  "type": "email.clicked"
+}
